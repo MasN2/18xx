@@ -34,15 +34,13 @@ module Engine
         TILE_UPGRADES_MUST_USE_MAX_EXITS = %i[cities track].freeze
 
         MARKET = [
-          %w[0l 0a 0a 0a 42 44 46 48 50p 53s 56p 59p 62p 66p 70p 74s 78p 82p 86p 90p 95p 100p 105p 110p 115p 120s 127p 135p 142p
-             150p 157p 165p 172p 180p 190p 200p 210 220 230 240 250 260 270 285 300 315 330 345 360 375 390 405 420 440 460 480
-             500 520 540 560 580 600 625 650 675 700 725 750 775 800],
+          %w[0l 28 31 34 37 41 45 50p 56s 62p 68p 74p 78p 82p 90p 100p 112p 124p 136p 148p 164p 180p
+             200p 224 248 272 296 328 360 400 448 496 544 592 656 720 800],
            ].freeze
 
         MARKET_TEXT = Base::MARKET_TEXT.merge(
-           safe_par: 'Minimum Price for a 2($53), 5($74) and 10($120) share'\
-                     ' corporation taking maximum loans to ensure it avoids acquisition',
-           acquisition: 'Acquisition (Dividends needed to move right: $20: ➤, $40: ➤➤, $60: ➤➤➤, $80: ➤➤➤➤)'
+           safe_par: 'Minimum Price for a '\
+                     ' corporation taking maximum loans during OR 1.1 to ensure it avoids liquidation',
          ).freeze
 
         PHASES = [
