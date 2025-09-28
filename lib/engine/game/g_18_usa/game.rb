@@ -615,12 +615,11 @@ module Engine
 
           @timeline = [
             'End of SR 1: All unused subsidies are removed from the map',
-            'End of OR 1.1: All unsold 2 trains are exported.',
-            'End of OR 1.2: All unsold 2+ trains are exported.',
-            'End of OR 2.1: No trains are exported',
-            'End of OR 2.2: All unsold 3 trains are exported',
-            'End of each subsequent OR: The next available train is exported', \
-            '*Exported trains are removed from the game and can trigger phase changes as if purchased',
+            'End of OR 1.1: All but four unsold 2 trains are exported. 2 trains flip to 2+. Companies with $37 or lower share price are liquidated.',
+            'Phase X starts if there are no trains below X in the depot, and either:',
+            '- A company already has a train of X or above.',
+            '- A company buys a train of X or above.',
+            '- End of OR.',
           ].freeze
         end
 
