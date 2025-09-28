@@ -125,7 +125,7 @@ module Engine
             tiles: %i[yellow green brown gray],
             status: %w[no_new_shorts],
             operating_rounds: 2,
-            corporation_sizes: [10],
+            corporation_sizes: [],
           },
         ].freeze
 
