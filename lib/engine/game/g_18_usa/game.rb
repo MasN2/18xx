@@ -201,19 +201,6 @@ module Engine
           @metro_denver ||= false
         end
 
-        def loans_per_increment(increment)
-          return 4 if @players.size >= 5 && increment == min_loan
-          return 6 if @players.size >= 5
-
-          super
-        end
-
-        def max_loan
-          return 60 if @players.size >= 5
-
-          super
-        end
-
         def tile_by_name(name)
           @tiles.find { |t| t.name == name }
         end
