@@ -31,6 +31,8 @@ module Engine
 
         OBSOLETE_TRAINS_COUNT_FOR_LIMIT = false
 
+        EBUY_DEPOT_TRAIN_MUST_BE_CHEAPEST = false
+
         TILE_UPGRADES_MUST_USE_MAX_EXITS = %i[cities track].freeze
 
         MARKET = [
