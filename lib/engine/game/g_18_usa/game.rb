@@ -144,23 +144,20 @@ module Engine
           ],
         }.merge(G1817::Game::STATUS_TEXT)
 
-        TRAINS = [{ name: '2', distance: 2, price: 100, rusts_on: '4', num: 40 },
-                  { name: '2+', distance: 2, price: 100, obsolete_on: '4', num: 5 },
-                  { name: '3', distance: 3, price: 250, rusts_on: '6', num: 12 },
-                  { name: '3+', distance: 3, price: 250, obsolete_on: '6', num: 2 },
-                  { name: '4', distance: 4, price: 400, rusts_on: '8', num: 8 },
-                  { name: '4+', distance: 4, price: 400, obsolete_on: '8', num: 1 },
-                  { name: '5', distance: 5, price: 600, num: 6 },
-                  { name: '6', distance: 6, price: 750, num: 5 },
-                  { name: '7', distance: 7, price: 900, num: 3 },
+        TRAINS = [{ name: '2', distance: 2, price: 100, rusts_on: '4', num: 24 },
+                  { name: '2+', distance: 2, price: 100, obsolete_on: '4', num: 4 },
+                  { name: '3', distance: 3, price: 240, rusts_on: '6', num: 10 },
+                  { name: '4', distance: 4, price: 400, rusts_on: '8', num: 9 },
+                  { name: '5', distance: 5, price: 640, num: 5 },
+                  { name: '6', distance: 6, price: 760, num: 4 },
+                  { name: '7', distance: 7, price: 880, num: 3 },
                   {
                     name: '8',
                     distance: 8,
-                    price: 1100,
-                    num: 40,
+                    price: 1000,
+                    num: 13,
                     events: [{ 'type' => 'signal_end_game' }],
-                  },
-                  { name: 'P', distance: 0, price: 200, available_on: '5', num: 20 }].freeze
+                  }].freeze
 
         def game_trains
           return seventeen_trains if @optional_rules.include?(:seventeen_trains)
