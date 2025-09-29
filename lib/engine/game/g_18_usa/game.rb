@@ -619,8 +619,8 @@ module Engine
           case turn
           when '1.1'
             @depot.export_all!('2')
-            @phase.next!
           end
+          @phase.next!
         end
 
         def stock_round
