@@ -97,8 +97,25 @@ module Engine
 
       (@game.companies + @game.corporations).each { |c| c.remove_ability_when(@name) }
     end
-
+    
     def next!
+      case current
+        when '2':
+          phase_num = 1
+        when '2+':
+          phase_num = 2
+        else
+          phase_num = current.to_i
+      end
+      case @game.depot.min_depot_train
+        when '2':
+          train_num = 1
+        when '2+':
+          train_num = 2
+        else
+          train_num = @game.depot.min_depot_train.to_i
+      end
+      return unless train_num > phase_num
       @index += 1
       setup_phase!
     end
