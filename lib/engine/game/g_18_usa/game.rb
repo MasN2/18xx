@@ -772,6 +772,45 @@ module Engine
           revenue
         end
 
+        def rust_trains!(train)
+        obsolete_trains = []
+        removed_obsolete_trains = []
+        rusted_trains = []
+        owners = Hash.new(0)
+
+        trains.each do |t|
+          next if t.obsolete
+          if t.name == "2+" and train == "2"
+            obsolete_trains << t.name
+            t.obsolete = true
+          end
+        end
+
+        trains.each do |t|
+          next if t.rusted
+          next unless t.name == train
+
+          if t.obsolete && t.owner == @depot
+            removed_obsolete_trains << t.name
+          else
+            rusted_trains << t.name
+            owners[t.owner.name] += 1
+          end
+          rust(t)
+        end
+        
+        def after_phase_change(name)
+          case name
+            when '4':
+              rust_all!('2')
+            when '6':
+              rust_all!('3')
+            when '8':
+              rust_all!('4')
+              event_signal_end_game!
+          end
+        end
+        
         def gnr_route?(route, stops)
           return false if !owns_gnr?(route.train.owner) || gnr_revenue(stops).zero?
 
