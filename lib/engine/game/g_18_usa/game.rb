@@ -54,14 +54,6 @@ module Engine
             corporation_sizes: [2],
           },
           {
-            name: '2+',
-            on: '2+',
-            train_limit: 4,
-            tiles: [:yellow],
-            operating_rounds: 2,
-            corporation_sizes: [2],
-          },
-          {
             name: '3',
             on: '3',
             train_limit: 4,
@@ -70,24 +62,8 @@ module Engine
             corporation_sizes: [2, 5],
           },
           {
-            name: '3+',
-            on: '3+',
-            train_limit: 4,
-            tiles: %i[yellow green],
-            operating_rounds: 2,
-            corporation_sizes: [2, 5],
-          },
-          {
             name: '4',
             on: '4',
-            train_limit: 3,
-            tiles: %i[yellow green],
-            operating_rounds: 2,
-            corporation_sizes: [5],
-          },
-          {
-            name: '4+',
-            on: '4+',
             train_limit: 3,
             tiles: %i[yellow green],
             operating_rounds: 2,
@@ -603,8 +579,7 @@ module Engine
           @timeline = [
             'End of SR 1: All unused subsidies are removed from the map',
             'End of OR 1.1: All but four unsold 2 trains are exported. 2 trains flip to 2+. Companies with $37 or lower share price are liquidated.',
-            'Phase X starts if there are no trains below X in the depot, and either:',
-            '- A company already has a train of X or above.',
+            'Phase X starts if there are no trains below X in the depot, and then, either:',
             '- A company buys a train of X or above.',
             '- End of OR.',
           ].freeze
