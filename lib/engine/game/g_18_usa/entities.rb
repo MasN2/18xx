@@ -117,7 +117,7 @@ module Engine
           # P5
           {
             name: 'P5 - Nobel\'s Blasting Powder',
-            value: 30,
+            value: 200,
             revenue: 0,
             desc: '$15 discount on mountains. No money is refunded if combined with the ability of another private that also '\
                   'negates the cost of difficult terrain',
@@ -134,7 +134,7 @@ module Engine
           # P6
           {
             name: 'P6 - Import/Export Hub',
-            value: 30,
+            value: 200,
             revenue: 0,
             desc: 'Discard during a corporation\'s lay or upgrade track step to replace one red area value token with the ' \
                   '30/40/50/80 value token. The corporation must be able to trace a legal route to reach the red area.',
@@ -274,7 +274,7 @@ module Engine
           # P14
           {
             name: 'P14 - Pyramid Scheme',
-            value: 60,
+            value: 200,
             revenue: 0,
             desc: 'This company has no special ability.',
             sym: 'P14',
@@ -283,7 +283,7 @@ module Engine
           # P15
           {
             name: 'P15 - Western Land Grant',
-            value: 60,
+            value: 80,
             revenue: 0,
             desc: 'The owning corporation may take one extra loan at a fixed $5 per round interest rate. ' \
                   'All other rules regarding loans are followed as normal.',
@@ -293,7 +293,7 @@ module Engine
           # P16 Regional Headquarters
           {
             name: 'P16 - Regional Headquarters',
-            value: 60,
+            value: 200,
             revenue: 0,
             desc: 'Regional Headquarters may be used to upgrade a green or brown non-metropolis city after phase 5 begins. ' \
                   'May be placed on any existing normal city. Three of the track segments are optional and can be placed ' \
@@ -365,7 +365,7 @@ module Engine
           # P19
           {
             name: 'P19 - Union Switch & Signal',
-            value: 80,
+            value: 60,
             revenue: 0,
             desc: 'One train per turn may attach the Switcher to skip over a city (even a blocked city)',
             sym: 'P19',
@@ -376,7 +376,7 @@ module Engine
           # P20
           {
             name: 'P20 - Suem & Wynn Law Firm',
-            value: 80,
+            value: 200,
             revenue: 0,
             desc: 'Discard during the lay or upgrade track step to place an available station token into any city ' \
                   'which currently has no available open station circles. The station token will immediately fill ' \
@@ -397,7 +397,7 @@ module Engine
           # P21
           {
             name: 'P21 - Keystone Bridge Co.',
-            value: 80,
+            value: 60,
             revenue: 0,
             desc: 'Comes with one $10 bridge token that may be placed by the owning '\
                   'corp in a city with $10 water cost, max one token '\
@@ -436,7 +436,7 @@ module Engine
           # P22
           {
             name: 'P22 - American Bridge Company',
-            value: 80,
+            value: 60,
             revenue: 0,
             desc: 'Comes with two $10 bridge tokens that may be placed by the owning '\
                   'corp in a city with $10 water cost, max one token '\
@@ -462,7 +462,7 @@ module Engine
           # P23
           {
             name: 'P23 - Bailey Yard',
-            value: 80,
+            value: 200,
             revenue: 0,
             desc: 'Provides an additional station marker for the owning corp, awarded at time of purchase',
             sym: 'P23',
@@ -477,7 +477,7 @@ module Engine
           # P24
           {
             name: 'P24 - Anaconda Copper',
-            value: 90,
+            value: 80,
             revenue: 0,
             desc: 'Comes with two ore markers. When placing a yellow '\
                   'tile in a mining hex pointing to a revenue location, can place '\
@@ -504,11 +504,11 @@ module Engine
           # P25
           {
             name: 'P25 - American Locomotive Co.',
-            value: 90,
+            value: 80,
             revenue: 0,
             desc: 'The owning corporation receives a 10% discount on all trains from the bank. During the owning company’s ' \
                   'turn, this company may be discarded prior to the Run Trains step to buy a train from the bank at a 10% ' \
-                  'discount. This company is discarded when the first 6-train is purchased.',
+                  'discount. This company is discarded when phase 6 begins.',
             sym: 'P25',
             abilities: [
               {
@@ -526,7 +526,7 @@ module Engine
           # P26
           {
             name: 'P26 - Rural Junction',
-            value: 90,
+            value: 80,
             revenue: 0,
             desc: 'Comes with three rural junction tiles. Rural junctions can be placed in empty city hexes and fulfill the '\
                   'revenue center requirement for coal, ore, and oil markers and can receive bridge tokens. Rural junctions '\
@@ -551,7 +551,7 @@ module Engine
           # P27
           {
             name: 'P27 - Company Town',
-            value: 90,
+            value: 80,
             revenue: 0,
             desc: 'Comes with 3 company town tiles, only one of which may be played. The owning corporation may place one '\
                   'Company Town tile on any empty hex not adjacent to a metropolis. When placed, the owning corporation '\
@@ -577,7 +577,7 @@ module Engine
           # P28
           {
             name: 'P28 - Consolidation Coal Co.',
-            value: 90,
+            value: 80,
             revenue: 0,
             desc: 'Comes with three coal mine markers. When placing a yellow '\
                   'tile in a coal hex next to a revenue location, can place '\
@@ -615,10 +615,43 @@ module Engine
           # P30
           {
             name: 'P30 - Double Heading',
-            value: 120,
+            value: 200,
             revenue: 0,
             desc: 'Each turn one non-permanent train may attach the Extender to run to one extra city',
             sym: 'P30',
+            abilities: [
+              # Owning the private is the ability
+            ],
+          },
+          # P31
+          {
+            name: 'P31 - 4T Co.',
+            value: 60,
+            revenue: 0,
+            desc: 'Buys 4Ts for $320 ($288 with American Locomotive Co.)',
+            sym: 'P31',
+            abilities: [
+              # Owning the private is the ability
+            ],
+          },
+          # P32
+          {
+            name: 'P32 - Extra Station',
+            value: 80,
+            revenue: 0,
+            desc: 'This private functions identically to the extra station subsidy.',
+            sym: 'P32',
+            abilities: [
+              # Owning the private is the ability
+            ],
+          },
+          # P30
+          {
+            name: 'P33 - Golden Parachute',
+            value: 120,
+            revenue: 0,
+            desc: 'President is given $150 when liquidated/acquired by bank or other player.',
+            sym: 'P33',
             abilities: [
               # Owning the private is the ability
             ],
