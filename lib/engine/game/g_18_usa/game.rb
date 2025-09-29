@@ -649,7 +649,6 @@ module Engine
             G18USA::Step::DenverTrack,
             G18USA::Step::Track,
             G18USA::Step::Token,
-            G18USA::Step::BuyPullman,
             G18USA::Step::Route,
             G18USA::Step::Dividend,
             G18USA::Step::BuyTrain,
