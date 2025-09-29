@@ -537,11 +537,9 @@ module Engine
 
         def loan_taken_stock_market_movement(entity)
           @stock_market.move_left(entity)
-          @stock_market.move_left(entity)
         end
 
         def loan_payoff_stock_market_movement(entity)
-          @stock_market.move_right(entity)
           @stock_market.move_right(entity)
         end
 
