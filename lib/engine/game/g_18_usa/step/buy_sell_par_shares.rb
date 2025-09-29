@@ -30,7 +30,10 @@ module Engine
 
               if available_subsidiaries(entity).any?
                 actions = %w[assign]
-                actions << 'pass' unless (entity.cash + (@game.phase.name==2 ? 30 : 0)).negative?
+                if game.phase.name == 2 and entity.cash.negative? and entity.cash >= -30:
+                  actions << 'underfund'
+                end
+                actions << 'pass' unless entity.cash.negative?
                 return actions
               end
             end
