@@ -123,13 +123,13 @@ module Engine
         else
           phase_num = @game.phase.name.to_i
       end
-      case @depot.min_depot_train
+      case @depot.min_depot_train.name
         when '2'
           train_num = 1
         when '2+'
           train_num = 2
         else
-          train_num = @depot.min_depot_train.to_i
+          train_num = @depot.min_depot_train.name.to_i
       end
       return unless train_num > phase_num
       @index += 1
