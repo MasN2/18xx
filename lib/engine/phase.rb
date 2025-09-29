@@ -24,6 +24,7 @@ module Engine
           smaller = 2
         else
           smaller = ((train.name.to_i)-1).to_s
+      end
       @depot.remove_train(smaller)
       buying_train!(nil, smaller, @depot)
     
