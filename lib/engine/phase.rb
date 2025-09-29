@@ -22,8 +22,6 @@ module Engine
           return
         when '2+'
           return
-        when '3'
-          smaller = (@game.phase.name == '2' ? '2' : '2+')
         else
           smaller = ((train.name.to_i)-1).to_s
       end
