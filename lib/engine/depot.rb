@@ -25,6 +25,17 @@ module Engine
       @game.phase.buying_train!(nil, train, self)
     end
 
+    def export_specific!(number):
+      trains.dup.reverse_each do |train|
+        next unless train.name == to_remove.last
+        @game.log << "-- Event: A #{train.name} train exports --"
+        @game.remove_train(train)
+        @game.phase.buying_train!(nil, train, self)
+        return
+      end
+    end
+        
+
     def export_all!(name, silent: false)
       @game.log << "-- Event: All #{name} trains are exported --" unless silent
       while (train = @upcoming.first).name == name
