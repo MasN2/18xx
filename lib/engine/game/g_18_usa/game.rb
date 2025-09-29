@@ -52,6 +52,13 @@ module Engine
             corporation_sizes: [2],
           },
           {
+            name: '2+',
+            train_limit: 4,
+            tiles: [:yellow],
+            operating_rounds: 2,
+            corporation_sizes: [2],
+          },
+          {
             name: '3',
             on: '3',
             train_limit: 4,
@@ -119,17 +126,18 @@ module Engine
         }.merge(G1817::Game::STATUS_TEXT)
 
         TRAINS = [{ name: '2', distance: 2, price: 100, rusts_on: '4', num: 40 },
-                  { name: '2+', distance: 2, price: 100, obsolete_on: '4', num: 4 },
-                  { name: '3', distance: 3, price: 240, rusts_on: '6', num: 10 },
-                  { name: '4', distance: 4, price: 400, rusts_on: '8', num: 9 },
-                  { name: '5', distance: 5, price: 640, num: 5 },
-                  { name: '6', distance: 6, price: 760, num: 4 },
-                  { name: '7', distance: 7, price: 880, num: 3 },
+                  { name: '2+', distance: 2, price: 100, obsolete_on: '4', available_on: '2+', num: 4 },
+                  { name: '3', distance: 3, price: 240, rusts_on: '6', available_on: '2', num: 10 },
+                  { name: '4', distance: 4, price: 400, rusts_on: '8', available_on: '2', num: 9 },
+                  { name: '5', distance: 5, price: 640, available_on: '2', num: 5 },
+                  { name: '6', distance: 6, price: 760, available_on: '2', num: 4 },
+                  { name: '7', distance: 7, price: 880, available_on: '2', num: 3 },
                   {
                     name: '8',
                     distance: 8,
                     price: 1000,
                     num: 40,
+                    available_on: '2', 
                     events: [{ 'type' => 'signal_end_game' }],
                   }].freeze
 
@@ -590,6 +598,7 @@ module Engine
           case turn
           when '1.1'
             @depot.export_all!('2')
+            @phase.next!
           end
         end
 
