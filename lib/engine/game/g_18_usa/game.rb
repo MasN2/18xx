@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require_relative '../g_1817/game'
 require_relative 'meta'
 require_relative 'map'
@@ -773,30 +772,31 @@ module Engine
         end
 
         def rust_trains!(train)
-        obsolete_trains = []
-        removed_obsolete_trains = []
-        rusted_trains = []
-        owners = Hash.new(0)
+          obsolete_trains = []
+          removed_obsolete_trains = []
+          rusted_trains = []
+          owners = Hash.new(0)
 
-        trains.each do |t|
-          next if t.obsolete
-          if t.name == "2+" and train == "2"
-            obsolete_trains << t.name
-            t.obsolete = true
+          trains.each do |t|
+            next if t.obsolete
+            if t.name == "2+" and train == "2"
+              obsolete_trains << t.name
+              t.obsolete = true
+            end
           end
-        end
 
-        trains.each do |t|
-          next if t.rusted
-          next unless t.name == train
-
-          if t.obsolete && t.owner == @depot
-            removed_obsolete_trains << t.name
-          else
-            rusted_trains << t.name
-            owners[t.owner.name] += 1
+          trains.each do |t|
+            next if t.rusted
+            next unless t.name == train
+  
+            if t.obsolete && t.owner == @depot
+              removed_obsolete_trains << t.name
+            else
+              rusted_trains << t.name
+              owners[t.owner.name] += 1
+            end
+            rust(t)
           end
-          rust(t)
         end
         
         def after_phase_change(name)
