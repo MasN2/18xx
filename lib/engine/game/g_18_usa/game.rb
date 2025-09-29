@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../g_1817/game'
 require_relative 'meta'
 require_relative 'map'
