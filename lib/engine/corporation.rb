@@ -151,6 +151,10 @@ module Engine
       @treasury_as_holding ? 0 : num_shares_of(self)
     end
 
+    def num_outstanding_shares
+      total_shares - num_treasury_shares
+    end
+
     def num_player_shares
       player_share_holders.values.sum / share_percent
     end
