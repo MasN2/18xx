@@ -32,6 +32,8 @@ module Engine
         end
         return
       end
+      @game.log << "DEBUG: The top train of the stack was not #{number}, searching through the depot to find it..."
+      return
       trains.dup.reverse_each do |train|
         next unless train.name == number
         @game.log << "-- Event: A #{train.name} train exports --"
