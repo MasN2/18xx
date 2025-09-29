@@ -25,7 +25,8 @@ module Engine
         else
           smaller = ((train.name.to_i)-1).to_s
       end
-      if @depot.trains.dup.first.name == smaller
+      @game.log << "DEBUG: This will trigger an export of: #{smaller}"
+      if @depot.min_depot_train.name == smaller
         @depot.export!
         return
       end
