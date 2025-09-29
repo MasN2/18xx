@@ -30,7 +30,7 @@ module Engine
 
               if available_subsidiaries(entity).any?
                 actions = %w[assign]
-                actions << 'pass' unless entity.cash.negative?
+                actions << 'pass' unless (entity.cash + (@game.phase.name==2 ? 30 : 0)).negative?
                 return actions
               end
             end
@@ -170,11 +170,6 @@ module Engine
             entity.companies
           end
 
-          def process_underfund(company)
-            action.company.spend(-company.owner.cash, @game.bank)
-            action.company.spend(-company.owner.cash, @game.entity)
-          end
-          
           def process_assign(action)
             @remaining_bid_amount -= action.target.value
             if @remaining_bid_amount.negative?
@@ -192,9 +187,6 @@ module Engine
               company.close!
             when 'P29'
               use_p29_ability(company)
-            when 'UND'
-              corporation = company.owner
-              process_underfund(corporation)
             else
               super
             end
