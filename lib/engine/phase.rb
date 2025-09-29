@@ -30,8 +30,7 @@ module Engine
     def buying_train!(entity, train, source)
       next! while @next_on.include?(train.id) || @next_on.include?(train.sym)
 
-      case train.name:
-        when 2
+      cascade_export!(train)
 
       @game.rust_trains!(train, entity)
       @depot.depot_trains(clear: true)
@@ -114,17 +113,17 @@ module Engine
     
     def next!
       case current
-        when '2':
+        when '2'
           phase_num = 1
-        when '2+':
+        when '2+'
           phase_num = 2
         else
           phase_num = current.to_i
       end
       case @depot.min_depot_train
-        when '2':
+        when '2'
           train_num = 1
-        when '2+':
+        when '2+'
           train_num = 2
         else
           train_num = @depot.min_depot_train.to_i
