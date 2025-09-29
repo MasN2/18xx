@@ -49,7 +49,7 @@ module Engine
           end
 
           def max_bid(entity, corporation = nil)
-            super + city_cash_subsidy(corporation)
+            super + city_cash_subsidy(corporation) + (@game.phase.name == 2 ? 30 : 0)
           end
 
           def city_cash_subsidies
@@ -88,8 +88,8 @@ module Engine
             par_price = [price / 2, self.class::MAX_PAR_PRICE].min
             share_price = @game.find_share_price(par_price)
 
-            # Temporarily give the entity cash to buy the corporation PAR shares
-            @game.bank.spend(share_price.price * 2, entity)
+            # Temporarily give the entity cash to based on actual amount bid
+            @game.bank.spend(price, entity)
 
             action = Action::Par.new(entity, corporation: corporation, share_price: share_price)
             action.id = @game.current_action_id
