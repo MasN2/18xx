@@ -16,8 +16,22 @@ module Engine
       setup_phase!
     end
 
+    def cascade_export!(train)
+      case train.name
+        when '2'
+          return
+        when '2+'
+          smaller = 2
+        else
+          smaller = ((train.name.to_i)-1).to_s
+      @depot.remove_train(smaller)
+      buying_train!(nil, smaller, @depot)
+    
     def buying_train!(entity, train, source)
       next! while @next_on.include?(train.id) || @next_on.include?(train.sym)
+
+      case train.name:
+        when 2
 
       @game.rust_trains!(train, entity)
       @depot.depot_trains(clear: true)
@@ -107,13 +121,13 @@ module Engine
         else
           phase_num = current.to_i
       end
-      case @game.depot.min_depot_train
+      case @depot.min_depot_train
         when '2':
           train_num = 1
         when '2+':
           train_num = 2
         else
-          train_num = @game.depot.min_depot_train.to_i
+          train_num = @depot.min_depot_train.to_i
       end
       return unless train_num > phase_num
       @index += 1
