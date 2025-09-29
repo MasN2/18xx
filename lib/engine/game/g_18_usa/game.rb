@@ -120,7 +120,7 @@ module Engine
           ],
         }.merge(G1817::Game::STATUS_TEXT)
 
-        TRAINS = [{ name: '2', distance: 2, price: 100, rusts_on: '4', num: 24 },
+        TRAINS = [{ name: '2', distance: 2, price: 100, rusts_on: '4', num: 40 },
                   { name: '2+', distance: 2, price: 100, obsolete_on: '4', num: 4 },
                   { name: '3', distance: 3, price: 240, rusts_on: '6', num: 10 },
                   { name: '4', distance: 4, price: 400, rusts_on: '8', num: 9 },
@@ -131,7 +131,7 @@ module Engine
                     name: '8',
                     distance: 8,
                     price: 1000,
-                    num: 13,
+                    num: 40,
                     events: [{ 'type' => 'signal_end_game' }],
                   }].freeze
 
@@ -243,16 +243,7 @@ module Engine
         end
 
         def setup_train_roster
-          return if @optional_rules.include?(:seventeen_trains)
-          return if @players.size >= 5
-
-          to_remove = %w[2+ 6 7 8]
-          @depot.trains.dup.reverse_each do |train|
-            next unless train.name == to_remove.last
-
-            @depot.export_all!(train, silent: true)
-            to_remove.pop
-          end
+          return
         end
 
         METROPOLIS_TILE_FOR_HEX = {
