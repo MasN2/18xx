@@ -515,7 +515,7 @@ module Engine
                 type: 'train_discount',
                 when: 'owning_corp_or_turn',
                 discount: 0.1,
-                trains: %w[2 2+ 3 3+ 4 4+ 5 6],
+                trains: %w[2 2+ 3 3+ 4 4+ 5 6 7 8],
               },
               {
                 type: 'close',
@@ -631,7 +631,16 @@ module Engine
             desc: 'Buys 4Ts for $320 ($288 with American Locomotive Co.)',
             sym: 'P31',
             abilities: [
-              # Owning the private is the ability
+              {
+                type: 'train_discount',
+                when: 'owning_corp_or_turn',
+                discount: 0.2,
+                trains: %w[4],
+              },
+              {
+                type: 'close',
+                on_phase: '5',
+              },
             ],
           },
           # P32
