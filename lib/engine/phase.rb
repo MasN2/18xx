@@ -23,7 +23,7 @@ module Engine
         when '2+'
           return
         when '3'
-          smaller = current == '2' ? '2' : '2+'
+          smaller = (@game.phase.name == '2' ? '2' : '2+')
         else
           smaller = ((train.name.to_i)-1).to_s
       end
@@ -115,13 +115,13 @@ module Engine
     end
     
     def next!
-      case current
+      case @game.phase.name
         when '2'
           phase_num = 1
         when '2+'
           phase_num = 2
         else
-          phase_num = current.to_i
+          phase_num = @game.phase.name.to_i
       end
       case @depot.min_depot_train
         when '2'
