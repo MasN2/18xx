@@ -27,6 +27,7 @@ module Engine
       end
       if @depot.trains.dup.first.name == smaller
         @depot.export!
+        return
       end
       if @game.phase.name == '2+' and smaller == '2'
         return
