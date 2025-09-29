@@ -270,11 +270,11 @@ module Engine
           return if @optional_rules.include?(:seventeen_trains)
           return if @players.size >= 5
 
-          to_remove = %w[2+ 4 5 6]
+          to_remove = %w[2+ 6 7 8]
           @depot.trains.dup.reverse_each do |train|
             next unless train.name == to_remove.last
 
-            @depot.forget_train(train)
+            @depot.export_all!(train, true)
             to_remove.pop
           end
         end
@@ -627,13 +627,7 @@ module Engine
           case turn
           when '1.1'
             @depot.export_all!('2')
-          when '1.2'
-            @depot.export_all!('2+')
-            @phase.next! unless @phase.tiles.include?(:green)
-          when '2.2'
-            @depot.export_all!('3')
-          else
-            @depot.export! unless turn == '2.1'
+            @depot.reclaim_all!('2+')
           end
         end
 
