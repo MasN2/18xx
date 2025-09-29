@@ -644,6 +644,7 @@ module Engine
             G18USA::Step::DiscardTrain,
             G18USA::Step::SpecialTrack,
             G18USA::Step::SpecialToken,
+            G18USA::Step::BuyPullman,
             G18USA::Step::SpecialBuyTrain,
             G18USA::Step::Assign,
             G18USA::Step::DenverTrack,
