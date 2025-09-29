@@ -801,11 +801,11 @@ module Engine
         
         def after_phase_change(name)
           case name
-            when '4':
+            when '4'
               rust_all!('2')
-            when '6':
+            when '6'
               rust_all!('3')
-            when '8':
+            when '8'
               rust_all!('4')
               event_signal_end_game!
           end
