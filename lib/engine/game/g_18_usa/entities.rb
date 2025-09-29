@@ -651,7 +651,17 @@ module Engine
             desc: 'This private functions identically to the extra station subsidy.',
             sym: 'P32',
             abilities: [
-              # Owning the private is the ability
+              {
+                type: 'token',
+                when: 'owning_corp_or_turn',
+                owner_type: 'corporation',
+                price: 0,
+                count: 1,
+                from_owner: false,
+                cheater: true,
+                special_only: true,
+                hexes: [], # Determined in special_token step
+              },
             ],
           },
           # P30
