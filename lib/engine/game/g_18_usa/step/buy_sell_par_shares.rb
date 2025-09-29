@@ -124,8 +124,8 @@ module Engine
             par_price = [price / 2, self.class::MAX_PAR_PRICE].min
             share_price = @game.find_share_price(par_price)
 
-            # Temporarily give the entity cash to based on actual amount bid
-            @game.bank.spend(price, entity)
+            # Temporarily give the entity cash to buy the corporation PAR shares
+            @game.bank.spend(share_price.price * 2, entity)
 
             action = Action::Par.new(entity, corporation: corporation, share_price: share_price)
             action.id = @game.current_action_id
@@ -138,7 +138,7 @@ module Engine
             # which they'll need to sort by adding companies.
             starting_cash = share_price.price * 2
             entity.spend(starting_cash, corporation, check_cash: false)
-            entity.spend(price - starting_cash, @game.bank, check_cash: false) if price > starting_cash
+            entity.spend(price - starting_cash, corporation, check_cash: false) if price > starting_cash
 
             @corporation_size = nil
             size_corporation(@game.phase.corporation_sizes.first) if @game.phase.corporation_sizes.one?
