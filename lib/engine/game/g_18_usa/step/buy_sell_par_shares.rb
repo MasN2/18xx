@@ -173,6 +173,7 @@ module Engine
           def process_underfund(company)
             action.company.spend(-company.owner.cash, @game.bank)
             action.company.spend(-company.owner.cash, @game.entity)
+          end
           
           def process_assign(action)
             @remaining_bid_amount -= action.target.value
