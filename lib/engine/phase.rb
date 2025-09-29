@@ -27,6 +27,7 @@ module Engine
       end
       @depot.remove_train(smaller)
       buying_train!(nil, smaller, @depot)
+    end
     
     def buying_train!(entity, train, source)
       next! while @next_on.include?(train.id) || @next_on.include?(train.sym)
