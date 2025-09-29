@@ -13,6 +13,42 @@ module Engine
           MAX_BID = 100_000
           MAX_PAR_PRICE = 200
 
+          def actions(entity)
+            return corporate_actions(entity) if !entity.player? && entity.owned_by?(current_entity)
+
+            return [] unless entity.player?
+
+            if @corporate_action
+              return [] unless entity.owner == current_entity
+              return ['pass'] if any_corporate_actions?(entity)
+
+              return []
+            end
+
+            if @winning_bid
+              return %w[choose] unless @corporation_size
+
+              if available_subsidiaries(entity).any?
+                actions = %w[assign]
+                actions << 'pass' unless (entity.cash + (@game.phase.name==2 ? 30 : 0)).negative?
+                return actions
+              end
+            end
+
+            return [] unless entity == current_entity
+            return %w[bid pass] if @auctioning
+
+            actions = super
+            unless bought?
+              actions << 'short' if can_short_any?(entity)
+              actions << 'bid' if max_bid(entity) >= self.class::MIN_BID
+            end
+            if (actions.any? || any_corporate_actions?(entity)) && !actions.include?('pass') && !must_sell?(entity)
+              actions << 'pass'
+            end
+            actions
+          end
+          
           def corporate_actions(entity)
             actions = super
             actions << 'scrap_train' if !@winning_bid && @round.current_actions.none? && can_scrap_train?(entity)
