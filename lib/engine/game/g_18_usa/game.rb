@@ -261,6 +261,10 @@ module Engine
           'H22' => ['X01', 0],
         }.freeze
 
+        def golden_parachute_private
+          @golden_parachute_private ||= company_by_id('P33')
+        end
+        
         # Convert a potential metro hex to a metro hex
         def convert_potential_metro(hex)
           active_metropolis_hexes << hex
