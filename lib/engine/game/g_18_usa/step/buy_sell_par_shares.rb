@@ -241,6 +241,11 @@ module Engine
               }
             end
 
+            if corporation.owner.cash.negative?
+              corporation.spend(-corporation.owner.cash, @game.bank, check_cash: false)
+              corporation.spend(-corporation.owner.cash, corporation.owner, check_cash: false)
+            end
+            
             super
           end
 
