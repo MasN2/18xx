@@ -659,7 +659,7 @@ module Engine
           # Underfunding
           {
             name: 'Underfund',
-            value: 0,
+            value: 10,
             revenue: 0,
             desc: 'Use this to underfund a company.',
             sym: 'UND',
@@ -667,7 +667,7 @@ module Engine
           },
           {
             name: 'Underfund',
-            value: 0,
+            value: 10,
             revenue: 0,
             desc: 'Use this to underfund a company.',
             sym: 'UND',
@@ -675,7 +675,7 @@ module Engine
           },
           {
             name: 'Underfund',
-            value: 0,
+            value: 10,
             revenue: 0,
             desc: 'Use this to underfund a company.',
             sym: 'UND',
@@ -683,7 +683,7 @@ module Engine
           },
           {
             name: 'Underfund',
-            value: 0,
+            value: 10,
             revenue: 0,
             desc: 'Use this to underfund a company.',
             sym: 'UND',
@@ -691,7 +691,7 @@ module Engine
           },
           {
             name: 'Underfund',
-            value: 0,
+            value: 10,
             revenue: 0,
             desc: 'Use this to underfund a company.',
             sym: 'UND',
@@ -699,7 +699,7 @@ module Engine
           },
           {
             name: 'Underfund',
-            value: 0,
+            value: 10,
             revenue: 0,
             desc: 'Use this to underfund a company.',
             sym: 'UND',
@@ -707,7 +707,7 @@ module Engine
           },
           {
             name: 'Underfund',
-            value: 0,
+            value: 10,
             revenue: 0,
             desc: 'Use this to underfund a company.',
             sym: 'UND',
@@ -715,7 +715,7 @@ module Engine
           },
           {
             name: 'Underfund',
-            value: 0,
+            value: 10,
             revenue: 0,
             desc: 'Use this to underfund a company.',
             sym: 'UND',
