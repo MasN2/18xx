@@ -85,7 +85,7 @@ module Engine
           end
 
           def max_bid(entity, corporation = nil)
-            super + city_cash_subsidy(corporation) + (@game.phase.name == 2 ? 30 : 0)
+            super + city_cash_subsidy(corporation) + (@game.phase.name == "2" ? 30 : 0)
           end
 
           def city_cash_subsidies
