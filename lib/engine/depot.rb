@@ -26,6 +26,12 @@ module Engine
     end
 
     def export_specific!(number)
+      if number == @game.phase.name
+        if @upcoming.first.name == number:
+          export!
+        end
+        return
+      end
       trains.dup.reverse_each do |train|
         next unless train.name == number
         @game.log << "-- Event: A #{train.name} train exports --"
