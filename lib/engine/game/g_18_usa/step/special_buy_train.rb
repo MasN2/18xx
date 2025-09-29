@@ -12,7 +12,11 @@ module Engine
           end
 
           def buyable_trains(entity)
-            trains = @game.abilities(entity, :train_discount, time: ability_timing)&.trains || []
+            if entity.id == 'P25'
+              trains = @game.abilities(entity, :train_discount, time: ability_timing)&.trains
+            else
+              trains = []
+            end
             super.select { |t| trains.include?(t.name) && t.from_depot? }
           end
 
