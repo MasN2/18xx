@@ -592,7 +592,6 @@ module Engine
           case turn
           when '1.1'
             @depot.export_all!('2')
-            @depot.reclaim_all!('2+')
           end
         end
 
