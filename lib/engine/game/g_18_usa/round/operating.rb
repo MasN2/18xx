@@ -32,7 +32,7 @@ module Engine
             return if @game.interest_owed(entity).zero?
 
             bank = @game.bank
-            owed = interest_owed(entity)
+            owed = @game.interest_owed(entity)
             if owed.positive?
               log_interest_payment(entity, owed)
               entity.spend(owed, bank)
