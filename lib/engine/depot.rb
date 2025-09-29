@@ -27,7 +27,7 @@ module Engine
 
     def export_specific!(number)
       if number == @game.phase.name
-        if @upcoming.first.name == number:
+        if @upcoming.first.name == number
           export!
         end
         return
