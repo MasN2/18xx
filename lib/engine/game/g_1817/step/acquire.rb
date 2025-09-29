@@ -502,7 +502,7 @@ module Engine
             return unless target.companies.include?(@game.golden_parachute_private)
             return if buyer&.owner == target.owner || !target.owner.player?
 
-            golden_parachute_value = 100 + (@game.golden_parachute_private.cost == 120 ? 50 : 0)
+            golden_parachute_value = 100 + (@game.golden_parachute_private.value == 120 ? 50 : 0)
             @game.log << "#{target.owner.name} collects #{@game.format_currency(golden_parachute_value)} "\
                          "from #{@game.golden_parachute_private.name}"
             @game.bank.spend(golden_parachute_value, target.owner)
