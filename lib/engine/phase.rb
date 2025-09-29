@@ -25,6 +25,9 @@ module Engine
         else
           smaller = ((train.name.to_i)-1).to_s
       end
+      if @depot.trains.dup.first.name == smaller
+        @depot.export!
+      end
       if @game.phase.name == '2+' and smaller == '2'
         return
       end
