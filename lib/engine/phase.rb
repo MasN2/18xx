@@ -21,7 +21,9 @@ module Engine
         when '2'
           return
         when '2+'
-          smaller = 2
+          return
+        when '3'
+          smaller = current == '2' ? '2' : '2+'
         else
           smaller = ((train.name.to_i)-1).to_s
       end
