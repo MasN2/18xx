@@ -280,8 +280,7 @@ module Engine
 
         def randomize_privates
           always_in = %w[P1 P2 P3 P4]
-          always_in << 'P10' if @players.size >= 5
-          num_kept = { 30 => 1, 40 => 2, 60 => 3, 80 => 2, 90 => 2, 120 => 1 }
+          num_kept = { 40 => 2, 60 => 3, 80 => 3, 120 => 1 }
 
           to_remove = @companies.reject { |c| always_in.include?(c.id) }.group_by(&:value).flat_map do |val, companies|
             companies.sort_by { rand }.take(companies.size - num_kept[val])
