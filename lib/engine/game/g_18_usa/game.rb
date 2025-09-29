@@ -106,7 +106,7 @@ module Engine
             on: '8',
             train_limit: 2,
             tiles: %i[yellow green brown gray],
-            status: %w[no_new_shorts, fours_rust],
+            status: %w[no_new_shorts, fours_rust, signal_end_game],
             operating_rounds: 2,
             corporation_sizes: [],
           },
@@ -137,22 +137,25 @@ module Engine
             'Rust 4s',
             '4s are rusted',
           ],
+          'signal_end_game' => [
+            'Signal End Game',
+            'Game ends 3 ORs after phae 8 begins.',
+          ],
         }.merge(G1817::Game::STATUS_TEXT)
 
-        TRAINS = [{ name: '2', distance: 2, price: 100, num: 40 },
+        TRAINS = [{ name: '2', distance: 2, price: 100, num: 30 },
                   { name: '2+', distance: 2, price: 100, available_on: '2+', num: 4 },
                   { name: '3', distance: 3, price: 240, available_on: '2', num: 10 },
                   { name: '4', distance: 4, price: 400, available_on: '2', num: 9 },
                   { name: '5', distance: 5, price: 640, available_on: '2', num: 5 },
-                  { name: '6', distance: 6, price: 760, available_on: '2', num: 4 },
-                  { name: '7', distance: 7, price: 880, available_on: '2', num: 3 },
+                  { name: '6', distance: 6, price: 760, available_on: '4', num: 4 },
+                  { name: '7', distance: 7, price: 880, available_on: '4', num: 3 },
                   {
                     name: '8',
                     distance: 8,
                     price: 1000,
                     num: 40,
-                    available_on: '2', 
-                    events: [{ 'type' => 'signal_end_game' }],
+                    available_on: '4',
                   }].freeze
 
         def game_trains
