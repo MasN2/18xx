@@ -79,7 +79,7 @@ module Engine
             return if cash >= bid
 
             options = available_company_options(entity).map(&:sum)
-            return if options.any? { |option| (option + cash) >= bid }
+            return if options.any? { |option| (option + cash + 30) >= bid }
 
             raise GameError, 'Invalid bid, no combination of privates and cash add up to bid amount'
           end
