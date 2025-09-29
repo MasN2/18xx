@@ -135,7 +135,7 @@ module Engine
           phase_num = @game.phase.name.to_i
       end
       @game.log << "DEBUG: Game current phase: #{phase_num} (#1 is 2, #2 is 2+)"
-      next_train = @depot.trains.dup.first.name
+      next_train = @depot.min_depot_train.name
       case next_train
         when '2'
           train_num = 1
