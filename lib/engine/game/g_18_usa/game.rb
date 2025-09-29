@@ -274,7 +274,7 @@ module Engine
           @depot.trains.dup.reverse_each do |train|
             next unless train.name == to_remove.last
 
-            @depot.export_all!(train, true)
+            @depot.export_all!(train, silent: true)
             to_remove.pop
           end
         end
