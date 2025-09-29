@@ -665,6 +665,7 @@ module Engine
             sym: 'UND',
             abilities: [],
           },
+          {
             name: 'Underfund',
             value: 0,
             revenue: 0,
@@ -672,6 +673,7 @@ module Engine
             sym: 'UND',
             abilities: [],
           },
+          {
             name: 'Underfund',
             value: 0,
             revenue: 0,
@@ -679,6 +681,7 @@ module Engine
             sym: 'UND',
             abilities: [],
           },
+          {
             name: 'Underfund',
             value: 0,
             revenue: 0,
@@ -686,6 +689,7 @@ module Engine
             sym: 'UND',
             abilities: [],
           },
+          {
             name: 'Underfund',
             value: 0,
             revenue: 0,
@@ -693,6 +697,7 @@ module Engine
             sym: 'UND',
             abilities: [],
           },
+          {
             name: 'Underfund',
             value: 0,
             revenue: 0,
@@ -700,6 +705,7 @@ module Engine
             sym: 'UND',
             abilities: [],
           },
+          {
             name: 'Underfund',
             value: 0,
             revenue: 0,
@@ -707,6 +713,7 @@ module Engine
             sym: 'UND',
             abilities: [],
           },
+          {
             name: 'Underfund',
             value: 0,
             revenue: 0,
