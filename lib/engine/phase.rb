@@ -134,6 +134,7 @@ module Engine
         else
           phase_num = @game.phase.name.to_i
       end
+      @game.log << "DEBUG: Game current phase: #{phase_num} (#1 is 2, #2 is 2+)"
       next_train = @depot.trains.dup.first.name
       case next_train
         when '2'
@@ -143,6 +144,7 @@ module Engine
         else
           train_num = next_train.to_i
       end
+      @game.log << "DEBUG: Top depot train: #{train_num} (#1 is 2, #2 is 2+)"
       return unless train_num > phase_num
       @index += 1
       setup_phase!
