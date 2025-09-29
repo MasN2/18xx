@@ -27,13 +27,13 @@ module Engine
         else
           smaller = ((train.name.to_i)-1).to_s
       end
-      if @game.phase.name == '2+' and number == '2'
+      if @game.phase.name == '2+' and smaller == '2'
         return
       end
-      if @game.phase.name != '2+' and number == '2+'
+      if @game.phase.name != '2+' and smaller == '2+'
         return
       end
-      if @game.phase.name.to_s > number.to_s
+      if @game.phase.name.to_s > smaller.to_s
         return
       end
       @depot.export_specific!(smaller)
